@@ -88,7 +88,7 @@ const CreateDirectory = ({
                 <span className="label-text">
                   {t('directory-sync-provider')}
                 </span>
-                <span className="label-text-alt"></span>
+                <span className="label-text-alt" />
               </label>
               <select
                 className="select-bordered select flex-grow"

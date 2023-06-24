@@ -32,11 +32,11 @@ const Home: NextPageWithLayout = () => {
         </div>
       </div>
       <HeroSection />
-      <div className="divider"></div>
+      <div className="divider" />
       <FeatureSection />
-      <div className="divider"></div>
+      <div className="divider" />
       <PricingSection />
-      <div className="divider"></div>
+      <div className="divider" />
       <FAQSection />
     </div>
   );

@@ -105,7 +105,7 @@ const Login: NextPageWithLayout<
             </Button>
           </div>
         </form>
-        <div className="divider"></div>
+        <div className="divider" />
         <div className="space-y-3">
           <Link href="/auth/magic-link">
             <a className="btn-outline btn w-full">

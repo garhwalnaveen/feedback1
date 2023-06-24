@@ -96,7 +96,7 @@ const SSO: NextPageWithLayout = () => {
             </Button>
           </div>
         </form>
-        <div className="divider"></div>
+        <div className="divider" />
         <div className="space-y-3">
           <Link href="/auth/login">
             <a className="btn-outline btn w-full">
