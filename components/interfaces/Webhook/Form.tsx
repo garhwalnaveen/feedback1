@@ -60,7 +60,7 @@ const Form = ({
                 error={formik.errors.url}
                 descriptionText="The endpoint URL must be HTTPS"
               />
-              <div className="divider"></div>
+              <div className="divider" />
               <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">{t('events-to-send')}</span>
