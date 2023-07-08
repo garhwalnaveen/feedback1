@@ -24,10 +24,11 @@ const Card: React.FC<CardProps> = ({ title, padding, borderRadius, width, height
         fontFamily: "'Roboto', sans-serif",
       }}
     >
-      {title && <h3 style={{ color: '#fff', fontSize: '24px', fontWeight: 'bold' }}>{"Upload CSV Here"}</h3>}
+      {title && <h3 style={{ color: '#fff', fontSize: '24px', fontWeight: 'bold' }}>Upload CSV Here</h3>}
       {children}
     </div>
   );
 };
 
 export default Card;
+

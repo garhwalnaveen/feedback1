@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GetServerSidePropsContext } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import UploadCSV from './csvupload'; // Adjust the path based on the actual location of the UploadCSV component
+import UploadCSV from './csvupload';
+import { useSession } from 'next-auth/react';
 
 const Source = () => {
   const [uploadStatus, setUploadStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const { data: session, status } = useSession(); // Move useSession hook inside the component
+
+  useEffect(() => {
+    // You can perform any session-related logic here
+    // For example, check if the user is authenticated or redirect if not
+    if (status === 'loading') {
+      // Session status is loading, you can show a loading spinner or skeleton UI
+    } else if (!session) {
+      // User is not authenticated, handle the logic accordingly
+    } else {
+      // User is authenticated, continue with the component logic
+    }
+  }, [status, session]);
 
   const handleFileUpload = async (file: File) => {
     setUploadStatus('uploading');
@@ -21,7 +35,9 @@ const Source = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to upload feedback');
+        const errorData = await response.json(); // Extract error data from response body, if any
+        const errorMessage = errorData?.error || 'Failed to upload feedback'; // Use error from server or fallback to default
+        throw new Error(errorMessage);
       }
 
       setUploadStatus('success');
@@ -52,7 +68,6 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 };
 
 export default Source;
-
 
 
 
